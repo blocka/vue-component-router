@@ -2,10 +2,9 @@
   "name": "vue-component-router",
   "version": "0.1.4",
   "description": "Component-based routing for vue. Inspired by react router 4",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs.js",
   "files": [
-    "dist/index.js",
-    "dist/index.min.js",
+    "dist/index.cjs.js",
     "src"
   ],
   "author": "Avi Block <atblock@gmail.com>",
@@ -13,7 +12,7 @@
   "repository": "git@github.com:blocka/vue-component-router.git",
   "scripts": {
     "lint": "eslint src/",
-    "build": "npm run lint && NODE_ENV=production rollup -c build/rollup.conf.prod.js && uglifyjs dist/index.js -c -m > dist/index.min.js",
+    "build": "npm run lint && bili",
     "dev": "NODE_ENV=development webpack-dev-server --watch --config build/webpack.conf.js --inline --hot",
     "prod": "NODE_ENV=production npm run build && webpack-dev-server --watch --config build/webpack.conf.js --inline --hot",
     "docs": "docute ./docs",
@@ -70,6 +69,7 @@
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-stage-2": "^6.24.1",
     "babel-preset-stage-3": "^6.22.0",
+    "bili": "^1.3.0",
     "chai": "^3.5.0",
     "css-loader": "^0.26.2",
     "eslint": "^3.16.1",
