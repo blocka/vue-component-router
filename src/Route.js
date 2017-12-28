@@ -19,7 +19,7 @@ const Route = {
 
     const [props, path] = match || []
 
-    const params = { ...props, url: path, path: this.path }
+    const params = { ...props, url: path, path: this.path, router: this.router }
 
     if (this.$scopedSlots.children) {
       return this.$scopedSlots.children(params)
