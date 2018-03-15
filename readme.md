@@ -66,7 +66,7 @@ A component which passes the browser's history and location (via the `history` m
 
 ## `Route`
 
-Take's two props, `path` and `exact`. Path takes an express style route, and if the browser's location matches that path, it will show the content. The content can either be a a component, or a scopedSlot. They will be passed the router parameters, the path that matched (useful for nesting routes), and the current url (useful for building nested links), either as props, or as parameters, respectively.
+Take's two props, `path` and `exact`. Path takes an express style route (which is based on [path-to-regexp](https://www.npmjs.com/package/path-to-regexp)), and if the browser's location matches that path, it will show the content. The content can either be a a component, or a scopedSlot. They will be passed the router parameters, the path that matched (useful for nesting routes), and the current url (useful for building nested links), either as props, or as parameters, respectively.
 
 Passing in `exact` as true will make the route match exactly.
 ```
