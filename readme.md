@@ -79,7 +79,7 @@ Passing in `exact` as true will make the route match exactly.
 
 ## `RouterLink`
 
-Takes two props, `to` and and optional `activeClass` (defaults to 'active'). This will render a link tag which knows how to update the location, and will set an active class when the route matches the link.
+Takes three props, `to`, `activeClass` (defaults to 'active') and `tag` (defaults to `a`). This will render a link tag which knows how to update the location, and will set an active class when the route matches the link.
 
 ## `MatchFirst`
 

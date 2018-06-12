@@ -12,6 +12,10 @@ const RouterLink = {
       type: String,
       default: 'active',
     },
+    tag: {
+      type: String,
+      default: 'a',
+    },
   },
   methods: {
     handleClick (e) {
@@ -25,17 +29,28 @@ const RouterLink = {
 
     const match = matchPath(this.to, { exact: false }, this.router.location)
 
-    return h('a', {
-      class: {
-        [this.activeClass]: !!match,
-      },
+    const linkProps = {
       on: {
         click: this.handleClick,
       },
       attrs: {
         href,
       },
-    }, this.$slots.default)
+    }
+
+    return h(this.tag, {
+      class: {
+        [this.activeClass]: !!match,
+      },
+      ...(
+        this.tag === 'a'
+          ? linkProps
+          : {}
+      ),
+    }, this.tag === 'a'
+      ? this.$slots.default
+      : [h('a', linkProps, this.$slots.default)]
+    )
   },
 }
 
