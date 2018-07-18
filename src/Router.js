@@ -54,11 +54,12 @@ const HistoryRouter = {
 }
 
 const withRouter = function (Component) {
-  const inject = Component.inject || []
+  const options = Component.options || Component
+  const inject = options.inject || []
 
   inject.push('router')
 
-  Component.inject = inject
+  options.inject = inject
 
   return Component
 }
