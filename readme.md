@@ -91,5 +91,11 @@ Takes a prop `to`, and will cause the browser to redirect to that url
 
 ## `withRouter`
 
-a HOC which will inject the wrapped function and inject the `router` object, which contains the `history` and `location` objects
+A HOC which will inject the wrapped function and inject the `router` object, which contains the `history` and `location` objects
+
+## `withHandleClick`
+
+A HOC that takes a component or tag, and returns a component that handles clicks similar to `RouterLink`. This enables using other components or tags as router links without `<a>` tags.
+
+This function takes 3 parameters: `tagOrComponent`, `to`, and `activeClass`. They correspond to the props of `RouterLink`.
 
