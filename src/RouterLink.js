@@ -1,5 +1,4 @@
 import matchPath from './matchPath'
-import Vue from 'vue'
 
 const RouterLink = {
   name: 'RouterLink',
@@ -56,7 +55,8 @@ const RouterLink = {
 }
 
 const withHandleClick = function (tagOrComponent, to, activeClass) {
-  return Vue.component('withHandleClick', {
+  return {
+    name: 'withHandleClick',
     inject: ['router'],
     methods: {
       handleClick (e) {
@@ -76,7 +76,7 @@ const withHandleClick = function (tagOrComponent, to, activeClass) {
       },
       this.$slots.default)
     },
-  })
+  }
 }
 
 export default RouterLink
