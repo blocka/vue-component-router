@@ -54,4 +54,30 @@ const RouterLink = {
   },
 }
 
+const withHandleClick = function (tagOrComponent, to, activeClass) {
+  return {
+    name: 'withHandleClick',
+    inject: ['router'],
+    methods: {
+      handleClick (e) {
+        e.preventDefault()
+
+        this.router.history.push(to)
+      },
+    },
+    render (createElement) {
+      return createElement(tagOrComponent, {
+        class: {
+          [activeClass]: !!matchPath(to, { exact: false }, this.router.location),
+        },
+        on: {
+          click: this.handleClick,
+        },
+      },
+      this.$slots.default)
+    },
+  }
+}
+
 export default RouterLink
+export { withHandleClick }
