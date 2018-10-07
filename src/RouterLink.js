@@ -55,8 +55,15 @@ const RouterLink = {
 }
 
 const withHandleClick = function (tagOrComponent, to, activeClass) {
+  let name = ''
+  if (typeof tagOrComponent === 'string') {
+    name = tagOrComponent
+  } else {
+    name = (tagOrComponent.options || tagOrComponent).name || ''
+  }
+
   return {
-    name: 'withHandleClick',
+    name,
     inject: ['router'],
     methods: {
       handleClick (e) {
