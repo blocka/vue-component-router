@@ -55,11 +55,12 @@ const HistoryRouter = {
 
 const withRouter = function (Component) {
   const options = Component.options || Component
-  const inject = options.inject || []
 
-  inject.push('router')
+  options.mixins = options.mixins || []
 
-  options.inject = inject
+  options.mixins.push({
+    inject: ['router'],
+  })
 
   return Component
 }
