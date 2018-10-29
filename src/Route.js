@@ -1,4 +1,3 @@
-import { injectProps } from './utils'
 import matchPath from './matchPath'
 
 const Route = {
@@ -30,9 +29,15 @@ const Route = {
         return this.$scopedSlots.default(params)[0]
       }
 
-      injectProps(this.$slots.default[0], params)
+      const $vnode = this.$slots.default[0]
 
-      return this.$slots.default[0]
+      return h($vnode.componentOptions.Ctor, {
+        ...$vnode.data,
+        props: {
+          ...($vnode.componentOptions.propsData || {}),
+          ...params,
+        },
+      })
     }
   },
 }
