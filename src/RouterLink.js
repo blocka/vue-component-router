@@ -13,7 +13,7 @@ const RouterLink = {
       default: 'active',
     },
     tag: {
-      type: String,
+      type: [String, Object],
       default: 'a',
     },
   },
