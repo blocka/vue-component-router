@@ -9,6 +9,8 @@ const MatchFirst = {
 
       const { path, exact } = vnode.componentOptions.propsData
 
+      vnode.key = this.router.location.pathname
+
       return matchPath(path, { exact }, this.router.location)
     })
 
