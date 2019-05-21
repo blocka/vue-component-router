@@ -26,7 +26,13 @@ const Route = {
 
     if (match) {
       if (this.$scopedSlots.default) {
-        return this.$scopedSlots.default(params)[0]
+        const vnodes = this.$scopedSlots.default(params)
+
+        if (!vnodes) { // likely this is because the single component returned is async
+          return h('div', 'loading...')
+        }
+
+        return vnodes[0]
       }
 
       const $vnode = this.$slots.default[0]
