@@ -16,6 +16,10 @@ const RouterLink = {
       type: [String, Object],
       default: 'a',
     },
+    exact: {
+      type: Boolean,
+      default: false,
+    },
   },
   methods: {
     handleClick (e) {
@@ -27,7 +31,7 @@ const RouterLink = {
   render (h) {
     const href = this.to
 
-    const match = matchPath(this.to, { exact: false }, this.router.location)
+    const match = matchPath(this.to, { exact: this.exact }, this.router.location)
 
     const linkProps = {
       on: {
